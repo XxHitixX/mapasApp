@@ -17,6 +17,7 @@ import * as mapboxgl from 'mapbox-gl';
     padding: 5px;
     position: fixed;
     z-index:  999;
+    width: 400px;
   }
   `
   ]
@@ -37,6 +38,18 @@ export class ZoomRangeComponent implements AfterViewInit {
       zoom: this.zoomLevel,
   });
 
+  //agregamos un listener al hacer zoom para que al momento de hacer scroll o hacer zoom me indique la cantidad de zoom que hizo
+  this.map.on('zoom', (ev)=>{
+    this.zoomLevel = this.map.getZoom();
+  })
+
+  //Para limitar a que el zoomIn maximo sea de 18
+  this.map.on('zoom', (ev)=>{
+    if(this.map.getZoom() > 18){
+      this.map.zoomTo(18)
+    }
+  })
+
 
   }
 
@@ -50,5 +63,8 @@ export class ZoomRangeComponent implements AfterViewInit {
     this.zoomLevel = this.map.getZoom();
   }
 
+  cambioZoom(valor : string){
+    this.map.zoomTo(Number(valor)) 
+  }
 
 }
