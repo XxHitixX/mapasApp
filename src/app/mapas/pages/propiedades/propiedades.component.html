@@ -1,1 +1,22 @@
-<p>propiedades works!</p>
+
+<div class="row container mt-3">
+    <div class="col-2"></div>
+    <div class="col">
+        <h1>Propiedades de los mapas</h1>
+        <hr>
+        <div class="row">
+            <div class="col-4 mt-2"
+                  *ngFor="let propiedad of propiedades">
+                <div class="card">
+                    <img src="..." class="card-img-top">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ propiedad.titulo }}</h2>
+                        <div class="card-text">
+                            {{propiedad.descripcion}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
