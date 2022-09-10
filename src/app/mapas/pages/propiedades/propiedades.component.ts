@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface Propiedad {
   titulo: string;
@@ -13,6 +13,7 @@ interface Propiedad {
   ]
 })
 export class PropiedadesComponent {
+
 
   constructor() { }
 
